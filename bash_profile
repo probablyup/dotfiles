@@ -30,3 +30,6 @@ alias makebranch=makeBranchFunc
 
 # This is good to have if you use Homebrew
 export PATH=/usr/local/bin:$PATH
+
+# Fixes Karma using an older version when >2 is installed by Homebrew
+export PHANTOMJS_BIN=/usr/local/bin/phantomjs
