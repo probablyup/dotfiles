@@ -30,7 +30,4 @@ alias changelogFunc=changelog
 # This is good to have if you use Homebrew
 export PATH=/usr/local/bin:$PATH
 
-# TODO: Set this to match your own path to static assets.
-export BIGBOARD_STATIC_PATH="/Users/esj/code/bigboard/ui"
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
