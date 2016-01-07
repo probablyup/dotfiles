@@ -25,7 +25,7 @@ alias makebranch=makeBranchFunc
 changelogFunc() {
     git log --pretty=format:"%s (%h)" $1..$2
 }
-alias changelogFunc=changelog
+alias changelog=changelogFunc
 
 # This is good to have if you use Homebrew
 export PATH=/usr/local/bin:$PATH
