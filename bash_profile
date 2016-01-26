@@ -22,8 +22,8 @@ makeBranchFunc() {
 }
 alias makebranch=makeBranchFunc
 
-changelogFunc() {
-    git log --pretty=format:"%s (%h)" $1..$2
+changelogFunc(){
+    git log --no-merges --pretty=format:"__%s__ (%h) %b" $1..$2
 }
 alias changelog=changelogFunc
 
