@@ -7,7 +7,7 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Compare local git branches to upstream and remove ones here that aren't there
 # ** Useful if you delete a branch in the git GUI
-alias cleanse='git branch --merged | grep -v "\*" | grep -v 'master' | xargs -n 1 git branch -d'
+alias cleanse='git branch --merged | grep -v "\*" | grep -v 'master' | xargs -n 1 git branch -d && git remote prune origin'
 
 # Get the latest updates from upstream, push them into your forked master branch,
 # then use that clean base to create a new branch with the name of your choice
@@ -26,6 +26,14 @@ changelogFunc(){
     git log --no-merges --pretty=format:"__%s__ (%h) %b" $1..$2
 }
 alias changelog=changelogFunc
+
+cloneAllFunc(){
+    for branch in `git branch -a | grep remotes/origin | grep -v HEAD | grep -v master `; do
+       git branch --track ${branch#remotes/origin/} $branch
+    done
+    git checkout master
+}
+alias cloneall=cloneAllFunc
 
 # This is good to have if you use Homebrew
 export PATH=/usr/local/bin:$PATH
