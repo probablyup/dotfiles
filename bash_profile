@@ -7,7 +7,7 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Compare local git branches to upstream and remove ones here that aren't there
 # ** Useful if you delete a branch in the git GUI
-alias cleanse='git branch --merged | grep -v "\*" | grep -v 'master' | xargs -n 1 git branch -d && git remote prune origin'
+alias cleanse='git fetch -p && git branch -vv | awk "/: gone]/{print $1}" | xargs git branch -D'
 
 # Get the latest updates from upstream, push them into your forked master branch,
 # then use that clean base to create a new branch with the name of your choice
@@ -23,7 +23,7 @@ makeBranchFunc() {
 alias makebranch=makeBranchFunc
 
 changelogFunc(){
-    git log --no-merges --pretty=format:"__%s__ (%h) %b" $1..$2
+    git log --no-merges --pretty=format:"%h %s" $1..$2
 }
 alias changelog=changelogFunc
 
@@ -39,3 +39,8 @@ alias cloneall=cloneAllFunc
 export PATH=/usr/local/bin:$PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# use `nvm alias default stable` to set all new terminal windows to use the most recent stable node version
+
+export NVM_DIR="$HOME/.nvm"
+  . "$(brew --prefix nvm)/nvm.sh"
