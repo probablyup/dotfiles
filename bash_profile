@@ -7,7 +7,10 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Compare local git branches to upstream and remove ones here that aren't there
 # ** Useful if you delete a branch in the git GUI
-alias cleanse='git fetch -p && git branch -vv | awk "/: gone]/{print $1}" | xargs git branch -D'
+cleanseFunc(){
+    git fetch -p && git branch -vv | grep ': gone]' | awk 'BEGIN { FS = "[ ]+" } { print $2 }' | xargs git branch -D
+}
+alias cleanse=cleanseFunc
 
 # Get the latest updates from upstream, push them into your forked master branch,
 # then use that clean base to create a new branch with the name of your choice
