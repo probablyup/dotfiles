@@ -1,0 +1,19 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Babel",
+		"BracketHighlighter",
+		"DocBlockr",
+		"EJS 2",
+		"Markdown Extended",
+		"Package Control",
+		"Stylus",
+		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
+		"Theme - Spacegray"
+	]
+}
