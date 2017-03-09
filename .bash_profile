@@ -1,3 +1,4 @@
+alias cleanse="git branch --merged | grep -Ev 'master|\*' | xargs git branch -D"
 alias ll="ls -fHal"
 alias vcd="cd ~/code"
 
