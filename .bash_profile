@@ -2,7 +2,7 @@ alias cleanse="git branch --merged | grep -Ev 'master|\*' | xargs git branch -D"
 alias ll="ls -fHal"
 alias vcd="cd ~/code"
 
-export PS1="\[\033[38;5;154m\]\u\[$(tput sgr0)\]\[\033[38;5;155m\] \[$(tput sgr0)\]\[\033[38;5;156m\]\h\[$($
+PROMPT="%F{10}%n%f %F{34}%m%f %F{51}[%f%F{51}%d%f%F{51}]%f $ "
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
