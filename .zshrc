@@ -1,6 +1,21 @@
+export PATH="/usr/local/sbin:$PATH"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
 alias cleanse="git branch --merged | grep -Ev 'master|\*' | xargs git branch -D"
 alias ll="ls -fHal"
 alias vcd="cd ~/code"
+alias unlink="npx react-native unlink"
+alias ios="npm run ios-dev:start"
+alias iosbeta="fastlane ios beta"
+alias iosrel="fastlane ios release"
+alias and="npm run android-dev:start"
+alias andbeta="fastlane android beta"
+alias andrel="fastlane android release"
 
 PROMPT="%F{10}%n%f %F{34}%m%f %F{51}[%f%F{51}%d%f%F{51}]%f $ "
 export CLICOLOR=1
